@@ -1,0 +1,17 @@
+#!/bin/sh
+# newscli 卸载后置脚本。
+#
+# 仅在 purge 时清掉安装期由 postinst 生成的字节码缓存
+# （这些文件不在 dpkg 清单里，不清理会留在 /opt 下）。
+# 只针对 /opt/newscli 自身的 __pycache__，不触碰任何用户数据。
+set -e
+
+if [ "$1" = "purge" ]; then
+    for d in /opt/newscli/newscli/__pycache__; do
+        if [ -d "$d" ]; then
+            rm -rf "$d" 2>/dev/null || true
+        fi
+    done
+fi
+
+exit 0

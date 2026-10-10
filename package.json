@@ -1,0 +1,56 @@
+{
+  "name": "hotspot-viewer",
+  "version": "1.0.0",
+  "description": "本机网络直连的聚合热点查看器",
+  "main": "src/main.js",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "test:sources": "node test/sources.test.js",
+    "test:smoke": "electron test/smoke.js",
+    "test:shot": "electron test/screenshot.js",
+    "dist": "electron-builder --win"
+  },
+  "author": "local",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^38.0.0",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "local.hotspot.viewer",
+    "productName": "热点聚合查看器",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "src/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "shortcutName": "热点聚合查看器"
+    },
+    "portable": {
+      "artifactName": "热点聚合查看器-免安装版.exe"
+    }
+  }
+}

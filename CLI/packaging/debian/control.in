@@ -1,0 +1,16 @@
+Package: newscli
+Version: @VERSION@
+Section: utils
+Priority: optional
+Architecture: all
+Depends: python3 (>= 3.8), ca-certificates
+Maintainer: newscli <newscli@localhost>
+Description: 命令行热点新闻查看器
+ newscli 通过本机网络直连各平台公开热榜接口与官方 RSS，
+ 在终端里逐组浏览热点标题列表，并可按下命令直接抓取正文，
+ 或用系统浏览器打开原链接。
+ .
+ 数据源包括微博热搜、知乎热榜、今日头条、百度热搜、抖音热搜、
+ B站排行、IT之家、36氪、掘金，以及 26 个国内外媒体与游戏站的官方 RSS。
+ .
+ 程序只用 Python 标准库实现，没有任何第三方依赖，安装后即可离线运行。

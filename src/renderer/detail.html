@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'none'"
+    />
+    <title>详情</title>
+    <link rel="stylesheet" href="detail.css" />
+  </head>
+  <body>
+    <header class="bar">
+      <div class="nav-group">
+        <button id="btn-back" class="icon-btn" title="后退" aria-label="后退">
+          <svg viewBox="0 0 16 16"><path d="M10 3L5 8l5 5" /></svg>
+        </button>
+        <button id="btn-forward" class="icon-btn" title="前进" aria-label="前进">
+          <svg viewBox="0 0 16 16"><path d="M6 3l5 5-5 5" /></svg>
+        </button>
+        <button id="btn-reload" class="icon-btn" title="刷新" aria-label="刷新">
+          <svg viewBox="0 0 16 16">
+            <path d="M13.5 8a5.5 5.5 0 1 1-1.6-3.9" />
+            <path d="M13.6 2.2v3.1h-3.1" />
+          </svg>
+        </button>
+      </div>
+
+      <div class="addr" id="addr">
+        <span class="site-dot" id="site-dot"></span>
+        <span class="host" id="host">正在打开…</span>
+        <span class="title-sep" id="title-sep" hidden>·</span>
+        <span class="page-title" id="page-title"></span>
+      </div>
+
+      <div class="tools">
+        <button id="btn-external" class="text-btn" title="用系统默认浏览器打开">
+          <svg viewBox="0 0 14 14">
+            <path d="M5.5 3H11v5.5" />
+            <path d="M11 3L4.5 9.5" />
+            <path d="M9 8.5V11H3V5h2.5" />
+          </svg>
+          浏览器打开
+        </button>
+        <button id="btn-copy" class="text-btn" title="复制当前链接">
+          <svg viewBox="0 0 14 14">
+            <rect x="5" y="5" width="7" height="7" rx="1.4" />
+            <path d="M9.5 5V3.4A1.4 1.4 0 0 0 8.1 2H3.4A1.4 1.4 0 0 0 2 3.4v4.7A1.4 1.4 0 0 0 3.4 9.5H5" />
+          </svg>
+          复制链接
+        </button>
+        <button id="btn-close" class="icon-btn close" title="关闭" aria-label="关闭">
+          <svg viewBox="0 0 12 12"><path d="M3 3l6 6M9 3l-6 6" /></svg>
+        </button>
+      </div>
+
+      <div class="progress" id="progress" hidden><span></span></div>
+    </header>
+
+    <main class="stage" id="stage">
+      <div class="hint" id="hint">
+        <div class="hint-spinner"></div>
+        <p>正在通过本机网络加载页面…</p>
+      </div>
+      <div class="error" id="error" hidden>
+        <h3>页面加载失败</h3>
+        <p id="error-msg"></p>
+        <div class="error-actions">
+          <button class="solid" id="btn-retry-load">重新加载</button>
+          <button class="outline" id="btn-ext-load">用系统浏览器打开</button>
+        </div>
+      </div>
+    </main>
+
+    <script src="detail.js"></script>
+  </body>
+</html>

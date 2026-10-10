@@ -1,0 +1,19 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""newscli 启动器（安装到 /usr/bin/newscli）。
+
+刻意写成薄壳：把 /opt/newscli 加进 sys.path 后直接调用主程序。
+这样升级时只需替换 /opt/newscli 下的源码，无需重新生成 /usr/bin 下的文件。
+"""
+
+import os
+import sys
+
+APP_DIR = "/opt/newscli"
+if os.path.isdir(APP_DIR) and APP_DIR not in sys.path:
+    sys.path.insert(0, APP_DIR)
+
+from newscli.cli import main  # noqa: E402
+
+if __name__ == "__main__":
+    sys.exit(main())

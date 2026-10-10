@@ -1,0 +1,10 @@
+#!/bin/sh
+# newscli 安装后置脚本：预编译字节码，让首次启动更快。
+set -e
+
+if command -v python3 >/dev/null 2>&1; then
+    python3 -m compileall -q /opt/newscli/newscli >/dev/null 2>&1 || true
+fi
+
+echo "newscli 已安装。运行 newscli 开始看新闻，newscli -h 查看帮助。"
+exit 0
